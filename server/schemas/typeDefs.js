@@ -1,69 +1,51 @@
 const typeDefs = `
-type Query {
-  me: User
-  event(id: ID!): Event
-  task(id: ID!): Task
-}
   type User {
-    _id: ID!
-    username: String!
-    email: String!
-    events: [Event!]!
+    _id: ID
+    username: String
+    email: String
+    password: String
+    thoughts: [Thought]!
   }
+
+  type Thought {
+    _id: ID
+    thoughtText: String
+    thoughtAuthor: String
+    createdAt: String
+    comments: [Comment]!
+  }
+
+  type Comment {
+    _id: ID
+    commentText: String
+    commentAuthor: String
+    createdAt: String
+  }
+
   type Auth {
-    token: String!
-    user: User!
-  }
-  
-  type Event {
-    _id: ID!
-    event_name: String!
-    date: String!
-    location: String
-    budget: Float
-    venue_layout: String
-    invitations: String
-    guest_count: Int
-    theme: String
-    food_options: String
-    entertainment: String
-    decorations: String
-    details: String
+    token: ID!
     user: User
-    tasks: [Task]!
   }
 
-  type Task {
-    _id: ID!
-    task_name: String!
-    details: String
-    complete: Boolean
-    user: User
-    event: Event!
-  }
-
-  input TaskInput {
-    task_name: String!
-    details: String
-    complete: Boolean
+  type Query {
+    users: [User]
+    user(username: String!): User
+    thoughts(username: String): [Thought]
+    thought(thoughtId: ID!): Thought
   }
 
   type Mutation {
-    login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addEvent(event_name: String!, date: String, location: String, budget: Float, venue_layout: String, guest_count: Int, theme: String, food_options: String, entertainment: String, decorations: String, details: String, ): Event
-    editEvent(eventId: ID!, event_name:String, date: String, location: String): Event
-    deleteEvent(eventId: ID!): Event
-  
-    addTask(task_name: String!, details: String, eventId: ID!, userId: ID): Task
-    editTask(taskId: ID!, task_name: String, details: String, complete: Boolean): Task
-    deleteTask(taskId: ID!): Task
+    login(email: String!, password: String!): Auth
+    addThought(thoughtText: String!, thoughtAuthor: String!): Thought
+    addComment(
+      thoughtId: ID!
+      commentText: String!
+      commentAuthor: String!
+    ): Thought
+    removeThought(thoughtId: ID!): Thought
+    removeComment(thoughtId: ID!, commentId: ID!): Thought
   }
-
-schema {
-  query: Query
-  mutation: Mutation
-}
 `;
 
 module.exports = typeDefs;
