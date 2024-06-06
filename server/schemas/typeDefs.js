@@ -45,6 +45,15 @@ const typeDefs = `
 
   type Mutation {
     addWorkout(workoutName: String!, Sets: String!, Reps: String!, Complete: Boolean!, user: ID!): Workout
+
+    addProfile(
+      username: String!, 
+      email: String!, 
+      password: String!): User
+  }
+  
+  type Mutation {
+
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addThought(thoughtText: String!, thoughtAuthor: String!): Thought
@@ -53,8 +62,7 @@ const typeDefs = `
       commentText: String!
       commentAuthor: String!
     ): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    removeComment(commentId: ID!):
   }
 `;
 

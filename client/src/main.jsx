@@ -1,11 +1,11 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
+import Login from './pages/Login.jsx';
 import App from './App.jsx';
 import Home from './pages/Home';
-import Matchup from './pages/Matchup';
-import Vote from './pages/Vote';
 import NotFound from './pages/NotFound';
+import SignUp from './pages/Signup.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -16,13 +16,13 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />
+      },  {
+        path: '/login',
+        element: <Login />
       }, {
-        path: '/matchup',
-        element: <Matchup />
-      }, {
-        path: '/matchup/:id',
-        element: <Vote />
-      },
+        path: '/signup',
+        element: <SignUp />
+      }, 
     ],
   },
 ]);

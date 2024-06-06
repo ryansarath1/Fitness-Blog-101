@@ -5,6 +5,8 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+
+ 
  html {
   line-height: 1.15;
   /* 1 */
@@ -19,6 +21,7 @@
  */
 body {
   margin: 0;
+  background-image: url(./360_F_705932666_hpK69u2FcoLsjrwjv6RkqD68XizRPC3L.jpg);
 }
 
 /**
@@ -35,6 +38,7 @@ main {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  color: white;
 }
 
 /* Grouping content
@@ -359,7 +363,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 16px;
-  color: #1a1a1a;
+  color: #c9c1c1;
 }
 
 h1,
@@ -370,6 +374,8 @@ h5,
 h6 {
   margin: 0 0 0.5rem;
   line-height: 1.25;
+  color: white;
+  
 }
 
 h1 {

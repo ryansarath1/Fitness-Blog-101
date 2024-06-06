@@ -1,43 +1,26 @@
+import AuthService from "../utils/auth";
 import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_MATCHUPS } from '../utils/queries';
-
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_MATCHUPS, {
-    fetchPolicy: "no-cache"
-  });
-
-  const matchupList = data?.matchups || [];
+  const isloggedin = AuthService.loggedIn();
+  // const isloggedin = true;
 
   return (
-    <div className="card bg-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
-        <h1>Welcome to Tech Matchup!</h1>
-      </div>
-      <div className="card-body m-5">
-        <h2>Here is a list of matchups you can vote on:</h2>
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <ul className="square">
-            {matchupList.map((matchup) => {
-              return (
-                <li key={matchup._id}>
-                  <Link to={{ pathname: `/matchup/${matchup._id}` }}>
-                    {matchup.tech1} vs. {matchup.tech2}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        )}
-      </div>
-      <div className="card-footer text-center m-3">
-        <h2>Ready to create a new matchup?</h2>
-        <Link to="/matchup">
-          <button className="btn btn-lg btn-danger">Create Matchup!</button>
-        </Link>
-      </div>
+    <div>
+      <h1>Welcome to Fitness Blog</h1>
+      {isloggedin ? (
+        <div>I'm Logged In</div>
+      ) : (
+        <div>
+          <h4>Sign in to access your account:</h4>
+          <h4>Sign up to register</h4>
+          <Link className="btn btn-lg btn-primary m-2" to="/login">
+                Login
+              </Link>
+              <Link className="btn btn-lg btn-primary m-2" to="/signup">
+                Sign Up
+              </Link>
+        </div>
+      )}
     </div>
   );
 };
