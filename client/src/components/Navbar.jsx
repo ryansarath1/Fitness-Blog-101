@@ -1,8 +1,8 @@
 // import { useState } from 'react';
 // import { Link } from 'react-router-dom';
 // import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
-// import SignUpForm from './SignupForm';
-// import LoginForm from './LoginForm';
+// import SignUp from './pages/Signup';
+// import Login from './pages/Login';
 
 
 // const AppNavbar = () => {
@@ -25,7 +25,7 @@
 //               <Nav.Link as={Link} to='/workouts'>
 //                 Workouts
 //               </Nav.Link>
-//               <Nav.Link as={Link} to='/nutrition'>
+//               {/* <Nav.Link as={Link} to='/nutrition'>
 //                 Nutrition
 //               </Nav.Link>
 //               <Nav.Link as={Link} to='/about'>
@@ -33,7 +33,7 @@
 //               </Nav.Link>
 //               <Nav.Link as={Link} to='/contact'>
 //                 Contact
-//               </Nav.Link>
+//               </Nav.Link> */}
 //               {/* if user is logged in show saved books and logout */}
 //               {Auth.loggedIn() ? (
 //                 <>
@@ -72,10 +72,10 @@
 //           <Modal.Body>
 //             <Tab.Content>
 //               <Tab.Pane eventKey='login'>
-//                 <LoginForm handleModalClose={() => setShowModal(false)} />
+//                 <Login handleModalClose={() => setShowModal(false)} />
 //               </Tab.Pane>
 //               <Tab.Pane eventKey='signup'>
-//                 <SignUpForm handleModalClose={() => setShowModal(false)} />
+//                 <SignUp handleModalClose={() => setShowModal(false)} />
 //               </Tab.Pane>
 //             </Tab.Content>
 //           </Modal.Body>
