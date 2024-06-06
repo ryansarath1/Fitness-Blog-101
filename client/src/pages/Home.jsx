@@ -11,9 +11,13 @@ const Home = () => {
         <div>I'm Logged In</div>
       ) : (
         <div>
-          <p>Sign in to access your account:</p>
+          <h4>Sign in to access your account:</h4>
+          <h4>Sign up to register</h4>
           <Link className="btn btn-lg btn-primary m-2" to="/login">
                 Login
+              </Link>
+              <Link className="btn btn-lg btn-primary m-2" to="/signup">
+                Sign Up
               </Link>
         </div>
       )}
