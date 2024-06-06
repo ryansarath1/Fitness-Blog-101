@@ -11,7 +11,7 @@ export const LOGIN_USER = gql`
     }
   }
 `;
-export const ADD_PROFILE = gql`
+export const ADD_USER = gql`
   mutation addProfile($name: String!, $email: String!, $password: String!) {
     addProfile(name: $name, email: $email, password: $password) {
       token
@@ -21,7 +21,6 @@ export const ADD_PROFILE = gql`
       }
     }
   }
-s
 `;
 
 export const CREATE_WORKOUT = gql`
@@ -34,6 +33,4 @@ export const CREATE_WORKOUT = gql`
     user
     workoutName
   }
-}`
-`;
-
+}`;

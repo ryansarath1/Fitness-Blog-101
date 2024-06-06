@@ -28,13 +28,13 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw AuthenticationError;
+        throw new AuthenticationError('Incorrect credentials');
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw AuthenticationError;
+        throw new AuthenticationError('Incorrect credentials');
       }
 
       const token = signToken(user);
@@ -52,8 +52,8 @@ const resolvers = {
       return thought;
     },
     addWorkout: async (parent, args, context) => {
-      console.log (args)
-      const newWorkout = await Workout.create (args)
+      console.log(args);
+      const newWorkout = await Workout.create(args);
 
       return newWorkout;
     },
@@ -70,17 +70,14 @@ const resolvers = {
         }
       );
     },
-    removeThought: async (parent, { thoughtId }) => {
-      return Thought.findOneAndDelete({ _id: thoughtId });
-    },
     removeComment: async (parent, { thoughtId, commentId }) => {
       return Thought.findOneAndUpdate(
         { _id: thoughtId },
         { $pull: { comments: { _id: commentId } } },
         { new: true }
       );
-    },
-  },
+    }
+  }
 };
 
 module.exports = resolvers;
