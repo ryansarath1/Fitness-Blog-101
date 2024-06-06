@@ -21,4 +21,19 @@ export const ADD_PROFILE = gql`
       }
     }
   }
+s
 `;
+
+export const CREATE_WORKOUT = gql`
+  mutation AddWorkout($workoutName: String!, $sets: String!, $reps: String!, $complete: Boolean!, $user: ID!) }
+  addWorkout(workoutName: $workoutName, Sets: $sets, Reps: $reps, Complete: $complete, user: $user) {
+    Complete
+    Reps
+    Sets
+    _id
+    user
+    workoutName
+  }
+}`
+`;
+

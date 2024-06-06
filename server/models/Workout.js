@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 const workoutSchema = new Schema (
     {
-    workout_name: {
+    workoutName: {
         type: String,
         required: true
     },
@@ -15,7 +15,7 @@ const workoutSchema = new Schema (
       type: String,
       required: false
   },
-    complete: {
+    Complete: {
         type: Boolean,
         required: true,
         default: false

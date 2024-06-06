@@ -27,6 +27,15 @@ const typeDefs = `
     user: User
   }
 
+  type Workout {
+    _id: ID
+    workoutName: String!
+    Sets: String!
+    Reps: String!
+    Complete: Boolean!
+    user: ID!
+  }
+
   type Query {
     users: [User]
     user(username: String!): User
@@ -35,6 +44,8 @@ const typeDefs = `
   }
 
   type Mutation {
+    addWorkout(workoutName: String!, Sets: String!, Reps: String!, Complete: Boolean!, user: ID!): Workout
+
     addProfile(
       username: String!, 
       email: String!, 
@@ -42,6 +53,7 @@ const typeDefs = `
   }
   
   type Mutation {
+
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addThought(thoughtText: String!, thoughtAuthor: String!): Thought
