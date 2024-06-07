@@ -54,7 +54,7 @@ const typeDefs = `
     ): Workout
 
     addProfile(
-      username: String!, 
+      name: String!, 
       email: String!, 
       password: String!
     ): User
