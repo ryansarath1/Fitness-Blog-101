@@ -1,3 +1,4 @@
+
 const typeDefs = `
   type User {
     _id: ID
@@ -30,9 +31,9 @@ const typeDefs = `
   type Workout {
     _id: ID
     workoutName: String!
-    Sets: String!
-    Reps: String!
-    Complete: Boolean!
+    sets: String!
+    reps: String!
+    complete: Boolean!
     user: ID!
   }
 
@@ -44,25 +45,43 @@ const typeDefs = `
   }
 
   type Mutation {
-    addWorkout(workoutName: String!, Sets: String!, Reps: String!, Complete: Boolean!, user: ID!): Workout
+    addWorkout(
+      workoutName: String!, 
+      sets: String!, 
+      reps: String!, 
+      complete: Boolean!, 
+      user: ID!
+    ): Workout
 
     addProfile(
+      name: String!, 
+      email: String!, 
+      password: String!
+    ): User
+
+    addUser(
       username: String!, 
       email: String!, 
-      password: String!): User
-  }
-  
-  type Mutation {
+      password: String!
+    ): Auth
 
-    addUser(username: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
-    addThought(thoughtText: String!, thoughtAuthor: String!): Thought
+    login(
+      email: String!, 
+      password: String!
+    ): Auth
+
+    addThought(
+      thoughtText: String!, 
+      thoughtAuthor: String!
+    ): Thought
+
     addComment(
-      thoughtId: ID!
-      commentText: String!
+      thoughtId: ID!, 
+      commentText: String!, 
       commentAuthor: String!
     ): Thought
-    removeComment(commentId: ID!):
+
+    removeComment(commentId: ID!): Thought
   }
 `;
 

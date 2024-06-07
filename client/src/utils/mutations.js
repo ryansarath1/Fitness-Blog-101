@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 
+
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -11,21 +12,20 @@ export const LOGIN_USER = gql`
     }
   }
 `;
-export const ADD_PROFILE = gql`
-  mutation addProfile($name: String!, $email: String!, $password: String!) {
-    addProfile(name: $name, email: $email, password: $password) {
+export const ADD_USER = gql`
+  mutation addProfile($username: String!, $email: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
       token
-      profile {
+      user {
         _id
-        name
+        username
       }
     }
   }
-s
 `;
 
 export const CREATE_WORKOUT = gql`
-  mutation AddWorkout($workoutName: String!, $sets: String!, $reps: String!, $complete: Boolean!, $user: ID!) }
+  mutation AddWorkout($workoutName: String!, $sets: String!, $reps: String!, $complete: Boolean!, $user: ID!) {
   addWorkout(workoutName: $workoutName, Sets: $sets, Reps: $reps, Complete: $complete, user: $user) {
     Complete
     Reps
@@ -34,6 +34,4 @@ export const CREATE_WORKOUT = gql`
     user
     workoutName
   }
-}`
-`;
-
+}`;
