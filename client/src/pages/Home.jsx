@@ -5,10 +5,17 @@ const Home = () => {
   // const isloggedin = true;
 
   return (
-    <div>
-      <h1>Welcome to Fitness Blog</h1>
+    <div><h1>Welcome to Fitness Blog</h1>
       {isloggedin ? (
-        <div>I'm Logged In</div>
+        
+        <div className="centered-div">
+        <div className="centered-content">
+        
+        <Link className="btn btn-lg btn-primary m-2" to="/login">
+                Sign Out
+              </Link>
+        </div>
+      </div>
       ) : (
         <div>
           <h4>Sign in to access your account:</h4>
