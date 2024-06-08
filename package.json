@@ -2,9 +2,9 @@
     "name": "fitness-blog-101",
     "version": "1.0.0",
     "description": "",
-    "main": "server/server.js",
     "scripts": {
         "start": "node server/server.js",
+        "client": "cd client && npm run dev",
         "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
         "install": "cd server && npm i && cd ../client && npm i",
         "seed": "cd server && npm run seed",
