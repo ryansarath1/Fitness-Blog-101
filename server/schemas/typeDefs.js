@@ -31,9 +31,9 @@ const typeDefs = `
   type Workout {
     _id: ID
     workoutName: String!
-    sets: String!
-    reps: String!
-    complete: Boolean!
+    Sets: String!
+    Reps: String!
+    Complete: Boolean!
     user: ID!
   }
 
@@ -47,9 +47,9 @@ const typeDefs = `
   type Mutation {
     addWorkout(
       workoutName: String!, 
-      sets: String!, 
-      reps: String!, 
-      complete: Boolean!, 
+      Sets: String!, 
+      Reps: String!, 
+      Complete: Boolean!, 
       user: ID!
     ): Workout
 
