@@ -10,21 +10,25 @@ const Home = () => {
         
         <div className="centered-div">
         <div className="centered-content">
-        
+        <h4>Sign in to access your account</h4>
+        <h4>Log in and share your routine</h4>
         <Link className="btn btn-lg btn-primary m-2" to="/login">
-                Sign Out
+                Login
+              </Link>
+        <Link className="btn btn-lg btn-primary m-2" to="/signup">
+                Sign up
               </Link>
         </div>
       </div>
       ) : (
         <div>
-          <h4>Sign in to access your account:</h4>
+          <h4>Make a post</h4>
           <h4>Sign up to register</h4>
           <Link className="btn btn-lg btn-primary m-2" to="/login">
-                Login
+                Post
               </Link>
-              <Link className="btn btn-lg btn-primary m-2" to="/signup">
-                Sign Up
+              <Link className="btn btn-lg btn-primary m-2" to="/home">
+                Log Out
               </Link>
         </div>
       )}
