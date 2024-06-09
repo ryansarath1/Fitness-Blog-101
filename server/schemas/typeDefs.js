@@ -12,7 +12,6 @@ const typeDefs = `
     workoutName: String
     Sets: String
     Reps: String
-    Complete: Boolean
   }
 
   type Auth {
@@ -29,7 +28,6 @@ const typeDefs = `
       workoutName: String!,
       Sets: Int!, 
       Reps: Int!, 
-      Complete: Boolean!
     ): User
 
     addUser(

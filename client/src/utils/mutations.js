@@ -28,17 +28,15 @@ export const LOGIN_USER = gql`
 
 // Uncomment and correct the below mutation if needed
 export const CREATE_WORKOUT = gql`
- mutation addWorkout($workoutName: String!, $sets: Int!, $reps: Int!, $complete: Boolean!) {
-  addWorkout(workoutName: $workoutName, Sets: $sets, Reps: $reps, Complete: $complete) {
+ mutation addWorkout($workoutName: String!, $sets: Int!, $reps: Int!) {
+  addWorkout(workoutName: $workoutName, Sets: $sets, Reps: $reps) {
     _id
     username
-    email
-    workouts {
+    workout {
       _id
       workoutName
       Sets
       Reps
-      Complete
     }
   }
 }
