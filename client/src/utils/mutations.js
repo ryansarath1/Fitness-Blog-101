@@ -27,15 +27,19 @@ export const LOGIN_USER = gql`
 `;
 
 // Uncomment and correct the below mutation if needed
-// export const CREATE_WORKOUT = gql`
-//   mutation AddWorkout($workoutName: String!, $sets: String!, $reps: String!, $complete: Boolean!, $user: ID!) {
-//     addWorkout(workoutName: $workoutName, sets: $sets, reps: $reps, complete: $complete, user: $user) {
-//       complete
-//       reps
-//       sets
-//       _id
-//       user
-//       workoutName
-//     }
-//   }
-// `;
+export const CREATE_WORKOUT = gql`
+ mutation addWorkout($workoutName: String!, $sets: Int!, $reps: Int!, $complete: Boolean!) {
+  addWorkout(workoutName: $workoutName, Sets: $sets, Reps: $reps, Complete: $complete) {
+    _id
+    username
+    email
+    workouts {
+      _id
+      workoutName
+      Sets
+      Reps
+      Complete
+    }
+  }
+}
+`;

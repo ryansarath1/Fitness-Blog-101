@@ -6,7 +6,7 @@ const resolvers = {
     me: async (parent, args, context) => {
       if (context.user){
         // once the model is fixed to add the workout to rhe user you will need to populate the workout arrau
-        const user =  await User.findOne({_id: context.user._id})
+        const user =  await User.findOne({_id: context.user._id}).populate('workouts')
         return user
       }
       throw AuthenticationError
@@ -68,12 +68,13 @@ const resolvers = {
         // create the workout then add the workout id to the users account, make sure this returns the user 
       const newWorkout = await Workout.create(args);
 
-    //     const user = await User.findOneAndUpdate(
-    //       { username: thoughtAuthor },
-    //       { $addToSet: { thoughts: thought._id } }
-    //     );
+        const user = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { workouts: newWorkout._id } }, 
+          {new: true}
+        );
 
-      return newWorkout;
+      return user;
       }
       throw AuthenticationError
     },

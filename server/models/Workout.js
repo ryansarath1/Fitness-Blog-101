@@ -8,23 +8,18 @@ const workoutSchema = new Schema (
         required: true
     },
     Sets: {
-        type: String,
+        type: Number,
         required: false
     },
     Reps: {
-      type: String,
+      type: Number,
       required: false
   },
     Complete: {
         type: Boolean,
         required: true,
         default: false
-    },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
-    },
+    }
   
 });
 
