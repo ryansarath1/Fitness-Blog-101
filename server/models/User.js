@@ -20,6 +20,12 @@ const userSchema = new Schema({
     minlength: 5,
   },
   // add a workout array that will store and array of workout ids
+  workouts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Workout',
+    },
+  ]
 });
 
 userSchema.pre('save', async function (next) {

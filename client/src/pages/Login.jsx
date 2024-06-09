@@ -90,7 +90,7 @@ const Login = () => {
             )}
           </div>
         </div>
-          <Link to="/signup" className="btn btn-block btn-info">dont have an account click here.</Link>
+          <Link to="/signup" className="btn btn-info">dont have an account click here.</Link>
       </div>
 
   );

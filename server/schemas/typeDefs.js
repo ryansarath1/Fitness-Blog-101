@@ -4,7 +4,7 @@ const typeDefs = `
     _id: ID!
     username: String
     email: String
-    password: String
+    workouts: [Workout]
   }
 
   type Workout {
@@ -27,8 +27,8 @@ const typeDefs = `
   type Mutation {
     addWorkout(
       workoutName: String!,
-      Sets: String!, 
-      Reps: String!, 
+      Sets: Int!, 
+      Reps: Int!, 
       Complete: Boolean!
     ): User
 
