@@ -20,7 +20,7 @@ const Home = () => {
       ) : (
         <div>
           <h4>Make a post</h4>
-          <Link className="btn btn-lg btn-primary m-2" to="/">
+          <Link className="btn btn-lg btn-primary m-2" to="/AddWorkout">
             Post
           </Link>
         </div>
