@@ -19,6 +19,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  // add a workout array that will store and array of workout ids
 });
 
 userSchema.pre('save', async function (next) {

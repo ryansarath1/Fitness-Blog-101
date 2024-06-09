@@ -1,26 +1,18 @@
 
 const typeDefs = `
   type User {
-    _id: ID
+    _id: ID!
     username: String
     email: String
     password: String
-    thoughts: [Thought]!
   }
 
-  type Thought {
-    _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
-  }
-
-  type Comment {
-    _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
+  type Workout {
+    _id: ID!
+    workoutName: String
+    Sets: String
+    Reps: String
+    Complete: Boolean
   }
 
   type Auth {
@@ -28,35 +20,16 @@ const typeDefs = `
     user: User
   }
 
-  type Workout {
-    _id: ID
-    workoutName: String!
-    Sets: String!
-    Reps: String!
-    Complete: Boolean!
-    user: ID!
-  }
-
   type Query {
-    users: [User]
-    user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
+    me: User
   }
 
   type Mutation {
     addWorkout(
-      workoutName: String!, 
+      workoutName: String!,
       Sets: String!, 
       Reps: String!, 
-      Complete: Boolean!, 
-      user: ID!
-    ): Workout
-
-    addProfile(
-      name: String!, 
-      email: String!, 
-      password: String!
+      Complete: Boolean!
     ): User
 
     addUser(
@@ -69,20 +42,8 @@ const typeDefs = `
       email: String!, 
       password: String!
     ): Auth
-
-    addThought(
-      thoughtText: String!, 
-      thoughtAuthor: String!
-    ): Thought
-
-    addComment(
-      thoughtId: ID!, 
-      commentText: String!, 
-      commentAuthor: String!
-    ): Thought
-
-    removeComment(commentId: ID!): Thought
   }
+
 `;
 
 module.exports = typeDefs;

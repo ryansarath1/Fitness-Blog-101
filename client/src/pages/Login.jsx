@@ -5,9 +5,9 @@ import { LOGIN_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-const Login = (props) => {
+const Login = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { error }] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -41,17 +41,17 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
+
+      <div className="col-12 col-lg-10 d-flex flex-column align-center mb-4">
         <div className="card">
           <h4 className="card-header bg-dark text-light p-2">Login</h4>
           <div className="card-body">
-            {data ? (
+            {/* {data ? (
               <p>
                 Success! You may now head{' '}
                 <Link to="/">back to the homepage.</Link>
               </p>
-            ) : (
+            ) : ( */}
               <form onSubmit={handleFormSubmit}>
                 <div className="form-group">
                   <input
@@ -81,7 +81,7 @@ const Login = (props) => {
                   Submit
                 </button>
               </form>
-            )}
+            {/* )} */}
 
             {error && (
               <div className="my-3 p-3 bg-danger text-white">
@@ -90,8 +90,9 @@ const Login = (props) => {
             )}
           </div>
         </div>
+          <Link to="/signup" className="btn btn-block btn-info">dont have an account click here.</Link>
       </div>
-    </main>
+
   );
 };
 
