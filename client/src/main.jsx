@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import SignUp from './pages/Signup.jsx';
 
+import Auth from './utils/auth.js'
+
 
 const router = createBrowserRouter([
   {
@@ -15,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: Auth.loggedIn() ? <Home /> : <Login />
       },  {
         path: '/login',
         element: <Login />
