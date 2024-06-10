@@ -4,15 +4,21 @@ const typeDefs = `
     _id: ID!
     username: String
     email: String
-    workout: [Workout]
+    workouts: [Workout]
   }
 
   type Workout {
     _id: ID!
     workoutName: String
-    Sets: String
-    Reps: String
+    Sets: Int
+    Reps: Int
   }
+
+    input WorkoutInput {
+    workoutName: String!
+    Sets: Int!
+    Reps: Int!
+    }
 
   type Auth {
     token: ID!
@@ -21,13 +27,13 @@ const typeDefs = `
 
   type Query {
     me: User
+    
   }
 
   type Mutation {
     addWorkout(
-      workoutName: String!,
-      Sets: String!, 
-      Reps: String!, 
+      workoutData: WorkoutInput!
+
     ): User
 
     addUser(

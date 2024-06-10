@@ -17,7 +17,6 @@ const workoutSchema = new Schema (
   },
     Complete: {
         type: Boolean,
-        required: true,
         default: false
     }
   
