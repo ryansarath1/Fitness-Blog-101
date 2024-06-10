@@ -5,6 +5,34 @@ const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
 
+
+
+
+// const mongoose = require('mongoose');
+
+
+// // Database connection
+// const username = encodeURIComponent(process.env.MONGO_USERNAME);
+// const password = encodeURIComponent(process.env.MONGO_PASSWORD);
+// const clusterUrl = process.env.MONGO_CLUSTER;
+// const dbName = process.env.MONGO_DBNAME;
+
+// const uri = `mongodb+srv://mad88era:MiamiD1972%40@atlascluster.9704vui.mongodb.net/?retryWrites=true&w=majority&appName=AtlasCluster`;
+
+// mongoose.connect(uri, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   serverSelectionTimeoutMS: 5000  // Increase timeout to handle network issues
+// }).then(() => {
+//   console.log('Connected to MongoDB Atlas');
+// }).catch((error) => {
+//   console.error('Error connecting to MongoDB Atlas:', error.message);
+//   console.error('Error details:', error);
+// });
+
+
+
+
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
