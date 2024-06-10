@@ -2,7 +2,6 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./pages/Login.jsx";
 import App from "./App.jsx";
-import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import SignUp from "./pages/Signup.jsx";
 
@@ -18,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: Auth.loggedIn() ? <Home /> : <Login />,
+        element: Auth.loggedIn() ? <Profile /> : <Login />,
       },
       {
         path: "/login",
