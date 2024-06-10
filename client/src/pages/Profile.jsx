@@ -2,6 +2,9 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import { Link } from "react-router-dom";
 
+import { useMutation } from '@apollo/client';
+import { CREATE_WORKOUT } from '../utils/mutations';
+
 export default function Profile() {
   const { loading, data } = useQuery(QUERY_ME);
 
@@ -20,7 +23,6 @@ export default function Profile() {
           <h4>{workout.workoutName}</h4>
           <p>Set: {workout.Sets}</p>
           <p>Reps: {workout.Reps}</p>
-          {/* <p>Completed: {workout.Complete}</p> */}
         </div>
       ))}
     </div>
