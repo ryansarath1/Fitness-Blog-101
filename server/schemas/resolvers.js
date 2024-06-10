@@ -1,16 +1,18 @@
-const { User, Thought, Workout } = require('../models');
-const { signToken, AuthenticationError } = require('../utils/auth');
+const { User, Workout } = require("../models");
+const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
-      if (context.user){
+      if (context.user) {
         // once the model is fixed to add the workout to rhe user you will need to populate the workout arrau
-        const user =  await User.findOne({_id: context.user._id}).populate('workouts')
-        return user
+        const user = await User.findOne({ _id: context.user._id }).populate(
+          "workouts"
+        );
+        return user;
       }
-      throw AuthenticationError
-    }
+      throw AuthenticationError;
+    },
     // users: async () => {
     //   return User.find();
     // },
@@ -49,56 +51,29 @@ const resolvers = {
 
       return { token, user };
     },
-    // addThought: async (parent, { thoughtText, thoughtAuthor }, context) => {
-    //   if(context.user){
 
-    //     const thought = await Thought.create({ thoughtText, thoughtAuthor });
-  
-    //     const user = await User.findOneAndUpdate(
-    //       { username: thoughtAuthor },
-    //       { $addToSet: { thoughts: thought._id } }
-    //     );
-  
-    //     return user;
-    //   }
-    //   throw AuthenticationError
-    // },
-    addWorkout: async (parent, args, context) => {
-      if(context.user){
-        // create the workout then add the workout id to the users account, make sure this returns the user 
-      const newWorkout = await Workout.create(args);
-
-        const user = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $push: { workouts: newWorkout._id } }, 
-          {new: true}
-        );
-
-      return user;
+    addWorkout: async (parent, { workoutData }, context) => {
+   
+      if (context.user) {
+        try {
+          // create the workout then add the workout id to the users account, make sure this returns the user
+          const newWorkout = await Workout.create(workoutData);
+          
+          const user = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $push: { workouts: newWorkout._id } },
+            { new: true }
+            );
+            
+            console.log(user);
+          return user;
+        } catch (error) {
+          console.log(error);
+        }
       }
-      throw AuthenticationError
+      throw AuthenticationError;
     },
-
-    // addComment: async (parent, { thoughtId, commentText, commentAuthor }) => {
-    //   return Thought.findOneAndUpdate(
-    //     { _id: thoughtId },
-    //     {
-    //       $addToSet: { comments: { commentText, commentAuthor } },
-    //     },
-    //     {
-    //       new: true,
-    //       runValidators: true,
-    //     }
-    //   );
-    // },
-    // removeComment: async (parent, { thoughtId, commentId }) => {
-    //   return Thought.findOneAndUpdate(
-    //     { _id: thoughtId },
-    //     { $pull: { comments: { _id: commentId } } },
-    //     { new: true }
-    //   );
-    // }
-  }
+  },
 };
 
 module.exports = resolvers;

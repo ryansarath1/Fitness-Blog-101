@@ -475,6 +475,8 @@
   
   h5 {
     font-size: 1.25rem;
+    color: white;
+    background-color: black;
   }
   
   h6 {
@@ -1236,6 +1238,8 @@
     display: inline-block;
     font-size: 1.2rem;
     margin: 0.625rem 0 0.25rem 0.3rem;
+    color: black;
+    font-weight: bold;
   }
   
   form .form-input {

@@ -7,7 +7,7 @@ import Auth from '../utils/auth';
 
 const Login = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error }] = useMutation(LOGIN_USER);
+  const [login] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -27,6 +27,7 @@ const Login = () => {
       const { data } = await login({
         variables: { ...formState },
       });
+    
 
       Auth.login(data.login.token);
     } catch (e) {
@@ -41,17 +42,12 @@ const Login = () => {
   };
 
   return (
-
+    
       <div className="col-12 col-lg-10 d-flex flex-column align-center mb-4">
         <div className="card">
+          <h1 className="card-header bg-dark text-light p-2">Welcome to Fitness Paradise</h1>
           <h4 className="card-header bg-dark text-light p-2">Login</h4>
           <div className="card-body">
-            {/* {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : ( */}
               <form onSubmit={handleFormSubmit}>
                 <div className="form-group">
                   <input
@@ -73,21 +69,13 @@ const Login = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <button
-                  className="btn btn-block btn-info"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
+                <button  className="btn btn-block btn-info" style={{ cursor: 'pointer' }}  type='submit'>
+        Submit
+      </button>
               </form>
             {/* )} */}
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
+            
           </div>
         </div>
           <Link to="/signup" className="btn btn-info">dont have an account click here.</Link>
