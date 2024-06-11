@@ -38,6 +38,8 @@ Click the link to enter the Fitness Paradise blog.
 
 https://github.com/ryansarath1/Fitness-Blog-101 
 
+https://fitness-blog-101.onrender.com/
+
 ## Future Implementations:
 
 * Be able to add progress pictures or workout videos
